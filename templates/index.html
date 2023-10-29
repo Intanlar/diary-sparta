@@ -67,19 +67,22 @@
       }
         
         function posting() {
+        // untuk validasi
         let title = $("#image-title").val();
+        let content = $("#image-description").val();
+        let file = $("#image").prop("files")[0];
+        let profile = $("#profile").prop("files")[0];
+        
+        // untuk bundling data 
+        let form_data = new FormData();
+
         if (!title) {
           return alert("Hey user, you forgot a title");
         }
-        let content = $("#image-description").val();
+        
         if (!content) {
           return alert("Hey user, you forgot a description");
         }
-
-        let file = $("#image").prop("files")[0];
-        let profile = $("#profile").prop("files")[0];
-
-        let form_data = new FormData();
 
         form_data.append("file_give", file);
         form_data.append("profile_give", profile);
@@ -95,6 +98,7 @@
           success: function (response) {
             console.log(response);
             window.location.reload();
+            alert('Your diary have been recorded!')
           },
         });
       }

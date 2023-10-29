@@ -40,7 +40,7 @@ def save_diary():
     file.save(save_to)
 
     profile = request.files['profile_give']
-    extension = profile.filename.split('.')[-1]  # Perhatikan penggunaan profile.filename
+    extension = profile.filename.split('.')[-1] 
     profilename = f'profile-{mytime}.{extension}'
     
     saveto = f'static/{profilename}'
